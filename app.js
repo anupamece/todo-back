@@ -6,7 +6,7 @@ const path=require('path');
 require('dotenv').config();
 const MONGO_URL=process.env.MONGO_URL;
 
-mongoose=require('mongoose');
+const mongoose=require('mongoose');
 
 const app=express();
 
@@ -21,7 +21,7 @@ app.use('/api/todo',todoItemRoute);
 
 app.use(pageNotFound);
 
-const PORT=3000;
+const PORT=process.env.PORT || 3000;
 
 
 mongoose.connect(MONGO_URL).then(()=>{
